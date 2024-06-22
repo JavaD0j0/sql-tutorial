@@ -1,4 +1,4 @@
-### SQL Basics
+# SQL Basics
 
 **SQL (Structured Query Language)** is a standard programming language used to manage and manipulate relational databases. Here's an overview of some basic SQL commands:
 
@@ -11,11 +11,11 @@
 7. **ALTER TABLE**: Modifies an existing table (e.g., adding a column).
 8. **JOIN**: Combines rows from two or more tables based on a related column.
 
-### Basic SQL Commands with Examples
+## Basic SQL Commands with Examples
 
 Let's start with simple SQL commands. We'll use a hypothetical database with a single table named `employees`.
 
-#### CREATE TABLE
+### CREATE TABLE
 The CREATE TABLE statement is used to create a new table in the database. You define the table's name and its columns, specifying the data type for each column.
 
 Syntax:
@@ -41,7 +41,7 @@ CREATE TABLE employees (
 - `age` INTEGER: Defines an age column as an integer.
 - `department` TEXT: Defines a department column as text.
 
-#### INSERT
+### INSERT
 The INSERT statement adds new rows to a table.
 
 Syntax:
@@ -56,7 +56,7 @@ INSERT INTO employees (name, age, department) VALUES ('Bob', 25, 'Engineering');
 Inserts two new rows into the employees table with specified values for each column.
 ```
 
-#### SELECT
+### SELECT
 The SELECT statement retrieves data from a database. You can specify which columns to retrieve and filter the results using WHERE.
 
 Syntax:
@@ -75,7 +75,7 @@ SELECT name, age FROM employees WHERE department = 'HR';
 ```
 - Retrieves the name and age columns for rows where the department is 'HR'.
   
-#### UPDATE
+### UPDATE
 The UPDATE statement modifies existing data in a table. You can specify which rows to update using the WHERE clause.
 
 Syntax:
@@ -89,7 +89,7 @@ UPDATE employees SET age = 31 WHERE name = 'Alice';
 ```
 - Updates the age of the employee named 'Alice' to 31.
 
-#### DELETE
+### DELETE
 The DELETE statement removes rows from a table. You can specify which rows to delete using the WHERE clause.
 
 Syntax:
@@ -103,7 +103,7 @@ DELETE FROM employees WHERE name = 'Bob';
 ```
 - Deletes the row from the employees table where the name is 'Bob'.
   
-#### ALTER TABLE
+### ALTER TABLE
 The ALTER TABLE statement modifies an existing table structure, such as adding or removing columns.
 
 Syntax:
@@ -118,7 +118,7 @@ ALTER TABLE employees ADD salary INTEGER;
 ```
 - Adds a new column salary of type integer to the employees table.
   
-#### DROP TABLE
+### DROP TABLE
 The DROP TABLE statement deletes a table and all its data from the database.
 
 Syntax:
@@ -132,7 +132,7 @@ DROP TABLE employees;
 ```
 - Deletes the employees table and all its data.
 
-#### JOIN
+### JOIN
 The JOIN clause is used to combine rows from two or more tables based on a related column between them. There are several types of joins: INNER JOIN, LEFT JOIN, RIGHT JOIN, and FULL OUTER JOIN.
 
 Syntax:
@@ -159,13 +159,13 @@ INNER JOIN departments ON employees.department = departments.department_name;
 Combines rows from employees and departments where the department column in employees matches the department_name column in departments.
 ```
 
-### Using SQLite with Python
+## Using SQLite with Python
 
 SQLite is a lightweight, disk-based database that doesn't require a separate server process. Python's `sqlite3` module provides a way to interact with SQLite databases.
 
 Here's a step-by-step guide to using SQLite with Python.
 
-#### Step 1: Importing SQLite3 and Connecting to a Database
+### Step 1: Importing SQLite3 and Connecting to a Database
 
 ```python
 import sqlite3
@@ -177,7 +177,7 @@ conn = sqlite3.connect('example.db')
 cur = conn.cursor()
 ```
 
-#### Step 2: Creating a Table
+### Step 2: Creating a Table
 
 ```python
 cur.execute('''
@@ -193,7 +193,7 @@ cur.execute('''
 conn.commit()
 ```
 
-#### Step 3: Inserting Data
+### Step 3: Inserting Data
 
 ```python
 cur.execute("INSERT INTO employees (name, age, department) VALUES (?, ?, ?)", ('Alice', 30, 'HR'))
@@ -203,7 +203,7 @@ cur.execute("INSERT INTO employees (name, age, department) VALUES (?, ?, ?)", ('
 conn.commit()
 ```
 
-#### Step 4: Querying Data
+### Step 4: Querying Data
 
 ```python
 cur.execute("SELECT * FROM employees")
@@ -212,7 +212,7 @@ for row in rows:
     print(row)
 ```
 
-#### Step 5: Updating Data
+### Step 5: Updating Data
 
 ```python
 cur.execute("UPDATE employees SET age = ? WHERE name = ?", (31, 'Alice'))
@@ -221,7 +221,7 @@ cur.execute("UPDATE employees SET age = ? WHERE name = ?", (31, 'Alice'))
 conn.commit()
 ```
 
-#### Step 6: Deleting Data
+### Step 6: Deleting Data
 
 ```python
 cur.execute("DELETE FROM employees WHERE name = ?", ('Bob',))
@@ -230,7 +230,7 @@ cur.execute("DELETE FROM employees WHERE name = ?", ('Bob',))
 conn.commit()
 ```
 
-#### Step 7: Closing the Connection
+### Step 7: Closing the Connection
 
 ```python
 # Close the cursor and connection
@@ -238,7 +238,7 @@ cur.close()
 conn.close()
 ```
 
-### Complete Example in Python
+## Complete Example in Python
 
 Here's a complete Python script that includes all the steps mentioned above:
 
